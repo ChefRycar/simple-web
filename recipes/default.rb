@@ -6,7 +6,6 @@
 
 include_recipe 'apt'
 
-
 httpd_service 'default' do
   action [:create, :start]
 end
@@ -28,7 +27,7 @@ end
 
 template '/var/www/index.html' do
   source 'index.html.erb'
-  variables({
-     :message => node["simple-web"]["message"],
-  })
+  variables(
+     message: node['simple-web']['message']
+  )
 end
